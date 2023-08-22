@@ -4,7 +4,7 @@ const app = express();
 require('dotenv').config()
 const mongoose = require('mongoose');
 const path = require('path')
-
+const bodyParser = require('body-parser');
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
@@ -14,7 +14,8 @@ mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopol
     console.error('Error connecting to MongoDB:', error);
   });
 
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.set('view engine', 'ejs'); // Set EJS as the view engine
 app.set('views', path.join(__dirname, 'public')); // Set the directory for your views
