@@ -1,0 +1,38 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Compiled files
+dist/
+build/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Log files
+*.log
+logs/
+
+# Cache and build directories
+.cache/
+tmp/
+temp/
+.cache-loader/
+public/assets
+
+# Other generated files
+package-lock.json
+yarn.lock
+
+# Exclude .env file
+.env
