@@ -45,10 +45,11 @@ exports.login = async (req, res) => {
                       lastName: user.lastName,
                       image: user.profilePic,
                     },
-                    process.env.JWT_SECRET
+                    process.env.JWT_SECRET,
+                    { expiresIn: '7d' }
                   );
                   console.log(token);
-        res.status(200).json({ token });
+        res.status(200).json({ token,userId : user._id });
       } catch (error) {
         res.status(500).json({ message: 'Error logging in' });
       }
