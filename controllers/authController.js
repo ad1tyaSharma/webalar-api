@@ -11,6 +11,7 @@ exports.register = async (req, res) => {
       name,
       email,
       password: hashedPwd,
+      profilePic
     });
     //console.log("User created successfully: ", response);
   } catch (error) {
