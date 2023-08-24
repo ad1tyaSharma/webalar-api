@@ -9,11 +9,7 @@ userSchema = new Schema({
             unique: true,
             required: true
         },
-        firstName: {
-            type: String,
-            required: true,
-        },
-        lastName: {
+        name: {
             type: String,
             required: true,
         },

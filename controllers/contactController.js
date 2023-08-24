@@ -2,8 +2,8 @@ const Contact = require('../models/Contact')
 
 exports.createContact = async (req, res) => {
     try {
-        const { email, firstName, lastName, phoneNumber, profilePic } = req.body;
-        const contact = new Contact({ email, firstName, lastName, phoneNumber, profilePic });
+        const { email, name, phoneNumber, profilePic } = req.body;
+        const contact = new Contact({ email, name, phoneNumber, profilePic });
         await contact.save();
         res.status(201).json({ message: 'Contact created successfully' });
       } catch (error) {
