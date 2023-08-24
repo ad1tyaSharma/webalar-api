@@ -5,7 +5,7 @@ exports.createContact = async (req, res) => {
         const { email, name, phoneNumber, profilePic,createdBy } = req.body;
         const contact = new Contact({ email, name, phoneNumber, profilePic,createdBy });
         await contact.save();
-        res.status(201).json({ message: 'Contact created successfully' });
+        res.status(201).json({ message: 'Contact created successfully',contact });
       } catch (error) {
         res.status(500).json({ message: 'Error creating Contact', error });
       }
