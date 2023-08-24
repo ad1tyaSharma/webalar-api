@@ -4,7 +4,7 @@ const User = require("../models/User");
 
 exports.register = async (req, res) => {
   //console.log(req.body);
-  const { name, email, password } = req.body;
+  const { name, email, password,profilePic } = req.body;
   const hashedPwd = await bcrypt.hash(password, 10);
   try {
     const response = await User.create({
@@ -48,7 +48,7 @@ exports.login = async (req, res) => {
                     process.env.JWT_SECRET,
                     { expiresIn: '7d' }
                   );
-                  console.log(token);
+                  //console.log(token);
         res.status(200).json({ token,userId : user._id });
       } catch (error) {
         res.status(500).json({ message: 'Error logging in' });
