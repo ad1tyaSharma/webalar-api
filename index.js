@@ -15,7 +15,21 @@ mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopol
   .catch((error) => {
     console.error('Error connecting to MongoDB:', error);
   });
-app.use(cors());
+  const allowedOrigins = [process.env.FRONTEND_URL];
+
+  app.use(cors({
+    origin: function (origin, callback) {
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+  }));
+  
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
