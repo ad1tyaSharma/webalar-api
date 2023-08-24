@@ -2,8 +2,8 @@ const Contact = require('../models/Contact')
 
 exports.createContact = async (req, res) => {
     try {
-        const { email, name, phoneNumber, profilePic } = req.body;
-        const contact = new Contact({ email, name, phoneNumber, profilePic });
+        const { email, name, phoneNumber, profilePic,createdBy } = req.body;
+        const contact = new Contact({ email, name, phoneNumber, profilePic,createdBy });
         await contact.save();
         res.status(201).json({ message: 'Contact created successfully' });
       } catch (error) {
@@ -11,13 +11,15 @@ exports.createContact = async (req, res) => {
       }
   };
 exports.getallContacts =async (req, res) => {
+  const {createdBy} = req.body;
     try {
-        const contacts = await Contact.find();
+        const contacts = await Contact.find({createdBy});
         res.json(contacts);
       } catch (error) {
         res.status(500).json({ error: 'Error fetching contacts' });
       }
 }  
+
 exports.getContact = async (req,res)=>
 {
     try {
