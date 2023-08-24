@@ -16,7 +16,7 @@ mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopol
     console.error('Error connecting to MongoDB:', error);
   });
   const allowedOrigins = [process.env.FRONTEND_URL];
-  const cors = require('cors');
+
   const corsOptions ={
       origin:'http://localhost:3000', 
       credentials:true,            //access-control-allow-credentials:true
