@@ -15,10 +15,10 @@ mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopol
   .catch((error) => {
     console.error('Error connecting to MongoDB:', error);
   });
-  const allowedOrigins = [process.env.FRONTEND_URL];
+  const allowedOrigins = [process.env.FRONTEND_URL,'http://localhost:3000'];
 
   const corsOptions ={
-      origin: process.env.FRONTEND_URL, 
+      origin:  allowedOrigins, 
       credentials:true,            //access-control-allow-credentials:true
       optionSuccessStatus:200
   }
