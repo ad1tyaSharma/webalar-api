@@ -16,11 +16,13 @@ mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopol
     console.error('Error connecting to MongoDB:', error);
   });
   const allowedOrigins = [process.env.FRONTEND_URL];
-  app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+  const cors = require('cors');
+  const corsOptions ={
+      origin:'http://localhost:3000', 
+      credentials:true,            //access-control-allow-credentials:true
+      optionSuccessStatus:200
+  }
+  app.use(cors(corsOptions))
   // app.use(cors({
   //   origin: function (origin, callback) {
   //     if (allowedOrigins.includes(origin)) {
