@@ -24,7 +24,7 @@ This repository contains the Node.js backend for the Contact Management applicat
 - Node.js
 - Express
 - MongoDB 
-- ...
+
 
 ## Contributing
 
