@@ -7,7 +7,7 @@ This repository contains the Node.js backend for the Contact Management applicat
 1. Clone this repository to your local machine.
 2. Install dependencies using `npm install`.
 3. Create a `.env` file based on `.env.example` and provide the required configuration.
-4. Run the server using `npm start`.
+4. Run the server using `npm run dev`.<br/>
 Demo User, <br/>
 Email : user@test.com <br/>
 Password : 123456 <br/>
