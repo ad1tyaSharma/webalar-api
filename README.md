@@ -8,7 +8,9 @@ This repository contains the Node.js backend for the Contact Management applicat
 2. Install dependencies using `npm install`.
 3. Create a `.env` file based on `.env.example` and provide the required configuration.
 4. Run the server using `npm start`.
-
+Demo User, <br/>
+Email : user@test.com <br/>
+Password : 123456 <br/>
 ## API Endpoints
 - `GET /auth/:id`: Get the user by ID.
 - `POST /auth/login`: Login user with email and password.
